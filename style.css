@@ -224,13 +224,13 @@ p{
 
         left:50%;
 
-        bottom:-35px;
+        bottom:-60px;
 
-        height:280px;
+        height:380px;
 
         transform:translateX(-50%);
 
-        animation:mobileFloat 3s ease-in-out infinite;
+        animation:mobileFloat 2s ease-in-out infinite;
 
     }
 
@@ -240,13 +240,13 @@ p{
 
         left:50%;
 
-        bottom:215px;
+        bottom:325px;
 
         transform:translateX(-50%);
 
         color:#F6C73B;
 
-        font-size:16px;
+        font-size:18px;
 
     }
 
