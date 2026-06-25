@@ -132,64 +132,144 @@ p{
 
 /* Mobile */
 
+/* ===========================
+   Layout Switch
+=========================== */
+
+.desktop-layout{
+    width:100%;
+    height:100%;
+}
+
+.mobile-layout{
+    display:none;
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
 @media(max-width:768px){
 
-    .hero{
-        height:100vh;
+    .desktop-layout{
+        display:none;
+    }
+
+    .mobile-layout{
+
         display:flex;
         flex-direction:column;
-        justify-content:flex-start;
         align-items:center;
-        padding-top:60px;
-        overflow:hidden;
-    }
 
-    .content{
         width:100%;
-        max-width:340px;
-        text-align:center;
-        z-index:5;
+        height:100vh;
+
+        position:relative;
+
+        overflow:hidden;
+
+        padding-top:45px;
+
     }
 
-    .logo{
+    .mobile-logo{
+
         width:170px;
+
         margin-bottom:35px;
+
     }
 
-    h1{
+    .mobile-content{
+
+        width:90%;
+        max-width:330px;
+
+        text-align:center;
+
+    }
+
+    .mobile-content h1{
+
         font-size:34px;
         line-height:1.15;
+
     }
 
-    h2{
+    .mobile-content h2{
+
+        margin-top:8px;
+
         font-size:24px;
+
         line-height:1.2;
+
     }
 
-    p{
-        margin-top:22px;
+    .mobile-content p{
+
+        margin-top:24px;
+
         font-size:15px;
+
         line-height:1.6;
-        padding:0 20px;
+
+        color:#9B9B9B;
+
     }
 
-    .pencil{
+    .mobile-pencil{
+
         position:absolute;
+
         left:50%;
-        bottom:-20px;
-        top:auto;
-        height:250px;
+
+        bottom:-35px;
+
+        height:280px;
+
         transform:translateX(-50%);
+
+        animation:mobileFloat 3s ease-in-out infinite;
+
     }
 
-    .coming-soon{
+    .mobile-coming{
+
         position:absolute;
+
         left:50%;
-        bottom:170px;
-        right:auto;
+
+        bottom:215px;
+
         transform:translateX(-50%);
-        font-size:16px;
+
         color:#F6C73B;
+
+        font-size:16px;
+
+    }
+
+}
+
+@keyframes mobileFloat{
+
+    0%{
+
+        transform:translateX(-50%) translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateX(-50%) translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateX(-50%) translateY(0);
+
     }
 
 }
