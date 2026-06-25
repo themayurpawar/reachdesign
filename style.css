@@ -32,7 +32,12 @@ body{
 }
 
 /* Content */
-
+.content-wrapper{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
 .content{
     text-align:center;
     max-width:900px;
