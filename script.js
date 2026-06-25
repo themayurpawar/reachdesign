@@ -1,5 +1,4 @@
 const pencil = document.querySelector(".pencil");
-const content = document.querySelector(".content");
 
 document.addEventListener("mousemove", (e) => {
 
@@ -8,8 +7,5 @@ document.addEventListener("mousemove", (e) => {
 
     pencil.style.transform =
         `translate(${x}px, ${y}px)`;
-
-    content.style.transform =
-        `translate(${x * 0.3}px, ${y * 0.3}px)`;
 
 });
