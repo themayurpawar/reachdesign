@@ -1,35 +1,175 @@
-const pencil = document.querySelector(".pencil");
-const content = document.querySelector(".content");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-let mouseX = 0;
-let mouseY = 0;
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F5F5F5;
+    overflow:hidden;
+}
 
-let currentX = 0;
-let currentY = 0;
+.hero{
+    width:100%;
+    height:100vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
 
-document.addEventListener("mousemove", (e) => {
+/* Pencil */
 
-    mouseX = (e.clientX - window.innerWidth / 2) / 45;
-    mouseY = (e.clientY - window.innerHeight / 2) / 45;
+.pencil{
+    position:absolute;
+    left:-70px;
+    top:85%;
+    transform:translateY(-50%);
+    height:650px;
+    animation:float 4s ease-in-out infinite;
+}
 
-});
+/* Content */
 
-function animate(){
+.content{
+    text-align:center;
+    max-width:900px;
+    z-index:2;
+}
 
-    currentX += (mouseX - currentX) * 0.08;
-    currentY += (mouseY - currentY) * 0.08;
+.logo{
+    width:280px;
+    margin-bottom:70px;
+}
 
-    if(pencil){
-        pencil.style.left = (-70 + currentX) + "px";
+h1{
+    font-size:65px;
+    font-weight:600;
+    line-height:1.1;
+    color:#111;
+}
+
+h1 span{
+    color:#F6C73B;
+}
+
+h2{
+    font-size:40px;
+    font-weight:500;
+    line-height:1.15;
+    color:#111;
+}
+
+p{
+    margin-top:50px;
+    color:#9B9B9B;
+    font-size:24px;
+    font-weight:400;
+}
+
+.coming-soon{
+    position:absolute;
+    right:150px;
+    bottom:15px;
+    font-size:22px;
+    font-weight:300;
+    color:#F6C73B;
+}
+
+/* Floating Animation */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(-50%);
     }
 
-    if(content){
-        content.style.transform =
-        `translate(${currentX*0.20}px, ${currentY*0.20}px)`;
+    50%{
+        transform:translateY(-53%);
     }
 
-    requestAnimationFrame(animate);
+    100%{
+        transform:translateY(-50%);
+    }
 
 }
 
-animate();
+/* Laptop */
+
+@media(max-width:1200px){
+
+    .pencil{
+        height:520px;
+        left:-50px;
+        top:85%;
+    }
+
+    .logo{
+        width:240px;
+    }
+
+    h1{
+        font-size:55px;
+    }
+
+    h2{
+        font-size:36px;
+    }
+
+    p{
+        font-size:20px;
+    }
+
+    .coming-soon{
+        right:80px;
+        bottom:20px;
+        font-size:18px;
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .hero{
+        padding:30px 20px;
+    }
+
+    .pencil{
+        display:block;
+        height:260px;
+        left:-80px;
+        top:82%;
+    }
+
+    .logo{
+        width:180px;
+        margin-bottom:45px;
+    }
+
+    h1{
+        font-size:36px;
+        line-height:1.15;
+    }
+
+    h2{
+        font-size:24px;
+        line-height:1.25;
+    }
+
+    p{
+        font-size:15px;
+        margin-top:28px;
+        padding:0 20px;
+    }
+
+    .coming-soon{
+        right:18px;
+        bottom:18px;
+        font-size:16px;
+    }
+
+}
