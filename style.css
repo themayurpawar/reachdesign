@@ -136,10 +136,9 @@ p{
 
     .hero{
         height:100vh;
-        display:flex;
         justify-content:flex-start;
-        align-items:center;
-        padding-top:50px;
+        align-items:lex-start;
+        padding-top:180px;
         overflow:hidden;
     }
 
@@ -180,23 +179,23 @@ p{
         position:absolute;
 
         left:50%;
+        bottom:-15px
+        top:auto;
 
-        transform:translate(-50%,-50%);
+        transform:translateX(-50%);
 
-        top:88%;
-
-        height:240px;
+        height:220px;
     }
 
     .coming-soon{
 
         left:50%;
+        right:auto;
+        ottom:120px;
 
         transform:translateX(-50%);
 
-        bottom:18px;
 
-        right:auto;
 
         font-size:16px;
     }
