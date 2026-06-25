@@ -136,17 +136,19 @@ p{
 
     .hero{
         height:100vh;
+        display:flex;
+        flex-direction:column;
         justify-content:flex-start;
-        align-items:lex-start;
-        padding-top:180px;
+        align-items:center;
+        padding-top:60px;
         overflow:hidden;
     }
 
     .content{
         width:100%;
+        max-width:340px;
         text-align:center;
-        z-index:2;
-        margin-top:0;
+        z-index:5;
     }
 
     .logo{
@@ -157,47 +159,37 @@ p{
     h1{
         font-size:34px;
         line-height:1.15;
-        font-weight:600;
     }
 
     h2{
         font-size:24px;
-        line-height:1.25;
-        font-weight:500;
+        line-height:1.2;
     }
 
     p{
-        font-size:15px;
         margin-top:22px;
-        padding:0 25px;
+        font-size:15px;
+        line-height:1.6;
+        padding:0 20px;
     }
 
     .pencil{
-
-        display:block;
-
         position:absolute;
-
         left:50%;
-        bottom:-15px
+        bottom:-20px;
         top:auto;
-
+        height:250px;
         transform:translateX(-50%);
-
-        height:220px;
     }
 
     .coming-soon{
-
+        position:absolute;
         left:50%;
+        bottom:170px;
         right:auto;
-        ottom:120px;
-
         transform:translateX(-50%);
-
-
-
         font-size:16px;
+        color:#F6C73B;
     }
 
 }
