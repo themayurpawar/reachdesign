@@ -138,6 +138,18 @@ p{
 
 }
 
+.work-strip{
+    width:100%;
+    overflow:hidden;
+    margin:40px 0;
+}
+
+.work-strip img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
 /* Mobile */
 
 /* ===========================
@@ -279,6 +291,16 @@ p{
 
     }
 
+}
+
+.work-strip{
+    width:100%;
+    margin:25px 0;
+}
+
+.work-strip img{
+    width:100%;
+    display:block;
 }
 
 @keyframes mobileFloat{
