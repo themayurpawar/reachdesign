@@ -37,22 +37,22 @@ else {
 
     window.addEventListener("deviceorientation", (event) => {
 
-        const x = event.gamma * 15;
-        const y = event.beta * 15;
+const x = Math.max(-20, Math.min(20, event.gamma * 2));
+const y = Math.max(-20, Math.min(20, event.beta * 1.5));
 
         if (mobilePencil) {
 
             mobilePencil.style.transform =
                 `translateX(calc(-50% + ${x}px))
                  translateY(${y}px)
-                 rotate(${x * 4}deg)`;
+                 rotate(${x * 0.8}deg)`;
 
         }
 
         if (mobileContent) {
 
             mobileContent.style.transform =
-                `translate(${x * 5}px, ${y * 5}px)`;
+                `translate(${x * 0.8}px, ${y * 0.8}px)`;
 
         }
 
