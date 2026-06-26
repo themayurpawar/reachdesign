@@ -4,47 +4,55 @@ const content = document.querySelector(".content-wrapper");
 const mobilePencil = document.querySelector(".mobile-pencil");
 const mobileContent = document.querySelector(".mobile-content");
 
-// ---------- Desktop Mouse Parallax ----------
+// =========================
+// Desktop Mouse Parallax
+// =========================
 
 if (window.innerWidth > 768) {
 
     document.addEventListener("mousemove", (e) => {
 
-        const x = (e.clientX - window.innerWidth / 2) / 40;
-        const y = (e.clientY - window.innerHeight / 2) / 40;
+        const x = (e.clientX - window.innerWidth / 2) / 20;
+        const y = (e.clientY - window.innerHeight / 2) / 20;
 
-        pencil.style.transform =
-            `translate(${x}px, ${y}px)`;
+        if (pencil) {
+            pencil.style.transform =
+                `translate(${x}px, ${y}px) rotate(${x * 0.3}deg)`;
+        }
 
-        content.style.transform =
-            `translate(calc(-50% + ${x * 0.25}px), calc(-50% + ${y * 0.25}px))`;
+        if (content) {
+            content.style.transform =
+                `translate(calc(-50% + ${x * 1.5}px), calc(-50% + ${y * 1.5}px))`;
+        }
 
     });
 
 }
 
-// ---------- Mobile Gyroscope ----------
+// =========================
+// Mobile Gyroscope
+// =========================
 
 else {
 
     window.addEventListener("deviceorientation", (event) => {
 
-const x = event.gamma * 20;
-const y = event.beta * 20;;
+        const x = event.gamma * 15;
+        const y = event.beta * 15;
 
         if (mobilePencil) {
 
-mobilePencil.style.transform =
-`translateX(calc(-50% + ${x}px))
- translateY(${y}px)
- rotate(${x * 5}deg)`;
+            mobilePencil.style.transform =
+                `translateX(calc(-50% + ${x}px))
+                 translateY(${y}px)
+                 rotate(${x * 4}deg)`;
 
         }
 
         if (mobileContent) {
 
             mobileContent.style.transform =
-                `translate(${x * 5}px, ${y * 5}px)
+                `translate(${x * 5}px, ${y * 5}px)`;
 
         }
 
