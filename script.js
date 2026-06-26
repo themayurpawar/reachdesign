@@ -1,17 +1,62 @@
-const pencil = document.querySelector(".pencil");
-const content = document.querySelector(".content-wrapper");
+const isMobile = window.innerWidth <= 768;
 
-document.addEventListener("mousemove", (e) => {
+// DESKTOP
+if (!isMobile) {
 
-    const x = (e.clientX - window.innerWidth / 2) / 40;
-    const y = (e.clientY - window.innerHeight / 2) / 40;
+    document.addEventListener("mousemove", (e) => {
 
-    // Pencil movement
-    pencil.style.transform =
-        `translate(${x}px, ${y}px)`;
+        console.log(
+            "Mouse:",
+            e.clientX,
+            e.clientY
+        );
 
-    // Content movement
-    content.style.transform =
-        `translate(calc(-50% + ${x * 0.25}px), calc(-50% + ${y * 0.25}px))`;
+    });
 
-});
+}
+
+// MOBILE
+else {
+
+    function startGyroscope() {
+
+        window.addEventListener("deviceorientation", (event) => {
+
+            console.log(
+                "Gamma:",
+                event.gamma,
+                "Beta:",
+                event.beta
+            );
+
+        });
+
+    }
+
+    if (
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+    ) {
+
+        document.body.addEventListener("click", async () => {
+
+            const permission =
+                await DeviceOrientationEvent.requestPermission();
+
+            if (permission === "granted") {
+
+                startGyroscope();
+
+            }
+
+        }, { once: true });
+
+    }
+
+    else {
+
+        startGyroscope();
+
+    }
+
+}
