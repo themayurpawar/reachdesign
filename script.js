@@ -80,9 +80,9 @@ else {
         // Coming Soon
         if (mobileComing) {
 
-            mobileComing.style.transform =
-                `translate(${x * 0.3}px, ${y * 0.3}px)`;
-
+    mobileComing.style.transform =
+        `translateX(calc(-50% + ${x * 0.3}px))
+         translateY(${y * 0.3}px)`;
         }
 
     });
