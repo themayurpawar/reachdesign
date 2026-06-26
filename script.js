@@ -1,62 +1,51 @@
-const isMobile = window.innerWidth <= 768;
+const pencil = document.querySelector(".pencil");
+const content = document.querySelector(".content-wrapper");
 
-// DESKTOP
-if (!isMobile) {
+const mobilePencil = document.querySelector(".mobile-pencil");
+const mobileContent = document.querySelector(".mobile-content");
+
+// ---------- Desktop Mouse Parallax ----------
+
+if (window.innerWidth > 768) {
 
     document.addEventListener("mousemove", (e) => {
 
-        console.log(
-            "Mouse:",
-            e.clientX,
-            e.clientY
-        );
+        const x = (e.clientX - window.innerWidth / 2) / 40;
+        const y = (e.clientY - window.innerHeight / 2) / 40;
+
+        pencil.style.transform =
+            `translate(${x}px, ${y}px)`;
+
+        content.style.transform =
+            `translate(calc(-50% + ${x * 0.25}px), calc(-50% + ${y * 0.25}px))`;
 
     });
 
 }
 
-// MOBILE
+// ---------- Mobile Gyroscope ----------
+
 else {
 
-    function startGyroscope() {
+    window.addEventListener("deviceorientation", (event) => {
 
-        window.addEventListener("deviceorientation", (event) => {
+        const x = event.gamma / 3;
+        const y = event.beta / 5;
 
-            console.log(
-                "Gamma:",
-                event.gamma,
-                "Beta:",
-                event.beta
-            );
+        if (mobilePencil) {
 
-        });
+            mobilePencil.style.transform =
+                `translateX(calc(-50% + ${x}px)) translateY(${y}px)`;
 
-    }
+        }
 
-    if (
-        typeof DeviceOrientationEvent !== "undefined" &&
-        typeof DeviceOrientationEvent.requestPermission === "function"
-    ) {
+        if (mobileContent) {
 
-        document.body.addEventListener("click", async () => {
+            mobileContent.style.transform =
+                `translate(${x * 0.2}px, ${y * 0.2}px)`;
 
-            const permission =
-                await DeviceOrientationEvent.requestPermission();
+        }
 
-            if (permission === "granted") {
-
-                startGyroscope();
-
-            }
-
-        }, { once: true });
-
-    }
-
-    else {
-
-        startGyroscope();
-
-    }
+    });
 
 }
