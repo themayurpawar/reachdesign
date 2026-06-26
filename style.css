@@ -277,7 +277,7 @@ p{
 
         transform:translateX(-50%);
 
-        animation:mobileFloat 2s ease-in-out infinite;
+        animation:mobileFloat 3s ease-in-out infinite;
 
     }
 
@@ -319,7 +319,7 @@ p{
 
     50%{
 
-        transform:translateX(-50%) translateY(-10px);
+        transform:translateX(-50%) translateY(-25px);
 
     }
 
