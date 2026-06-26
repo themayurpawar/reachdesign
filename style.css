@@ -142,12 +142,18 @@ p{
     width:100%;
     overflow:hidden;
     margin:40px 0;
+    opacity:0.3;
+    transition:opacity .3s ease;
 }
 
 .work-strip img{
     display:block;
     width:100%;
     height:auto;
+}
+
+.work-strip:hover{
+    opacity:0.6;
 }
 
 /* Mobile */
